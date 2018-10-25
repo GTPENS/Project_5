@@ -12,7 +12,7 @@ public class Enemy : MonoBehaviour {
     //public float CD = 5f;
     public float Starthealth = 100f;
     private float health;
-    public int Damage = 50;
+    public float Damage = 50f;
     public int Defense = 40;
 
     public Image life;

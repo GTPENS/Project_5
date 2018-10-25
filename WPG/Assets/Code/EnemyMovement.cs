@@ -6,7 +6,7 @@ public class EnemyMovement : MonoBehaviour {
     private Transform target;
     private int waypointindex = 0;
     private Enemy enemy;
-    public bool isDamaged = false;
+    //public bool isDamaged = false;
     // Use this for initialization
     void Start () {
         enemy = GetComponent<Enemy>();
@@ -18,6 +18,9 @@ public class EnemyMovement : MonoBehaviour {
     {
         Vector3 direction = target.position - transform.position;
         transform.Translate(direction.normalized * enemy.speed * Time.deltaTime, Space.World);
+
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward); 
 
         if (Vector3.Distance(transform.position, target.position) <= 0.2f)
         {
@@ -39,7 +42,7 @@ public class EnemyMovement : MonoBehaviour {
 
     void EndPath()
     {
-        isDamaged = true;
+        PlayerStats.PlayerHealth -= enemy.Damage;
         Destroy(gameObject);
     }
 }
