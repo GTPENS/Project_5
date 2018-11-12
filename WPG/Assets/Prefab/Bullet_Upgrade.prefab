@@ -36,7 +36,7 @@ Transform:
   m_GameObject: {fileID: 1571124510182394}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -11.23506, y: 0.44841254, z: 0}
-  m_LocalScale: {x: 0.223, y: 0.223, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -57,6 +57,8 @@ MonoBehaviour:
   explosionRadius: 0
   ImpactEffect: {fileID: 1365949801615470, guid: 140b428ef6d3db7459e48cb2e6597fa2,
     type: 2}
+  SFXShoot: {fileID: 1864143167849142, guid: 5201f801c84e00441b9f7db0dad72777, type: 2}
+  SFXBomb: {fileID: 1534443303920722, guid: e2d3befdb53c0254d86742c2c818a679, type: 2}
 --- !u!212 &212807585014676758
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -91,8 +93,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 40772b120bba9f64cb8c4779031116e2, type: 3}
+  m_SortingOrder: 1
+  m_Sprite: {fileID: 21300000, guid: 829d77682a2e8d040a10834f69769027, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

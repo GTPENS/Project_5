@@ -21,7 +21,7 @@ using UnityEngine;
 namespace GoogleMobileAds.Common
 {
     public class DummyClient : IBannerClient, IInterstitialClient, IRewardBasedVideoAdClient,
-            IAdLoaderClient, IMobileAdsClient
+            IAdLoaderClient, INativeExpressAdClient, IMobileAdsClient
     {
         public DummyClient()
         {
@@ -29,7 +29,7 @@ namespace GoogleMobileAds.Common
         }
 
         // Disable warnings for unused dummy ad events.
-#pragma warning disable 67
+        #pragma warning disable 67
 
         public event EventHandler<EventArgs> OnAdLoaded;
 
@@ -45,11 +45,9 @@ namespace GoogleMobileAds.Common
 
         public event EventHandler<EventArgs> OnAdLeavingApplication;
 
-        public event EventHandler<EventArgs> OnAdCompleted;
-
         public event EventHandler<CustomNativeEventArgs> OnCustomNativeTemplateAdLoaded;
 
-#pragma warning restore 67
+        #pragma warning restore 67
 
         public string UserId
         {
@@ -76,11 +74,6 @@ namespace GoogleMobileAds.Common
         }
 
         public void SetApplicationVolume(float volume)
-        {
-            Debug.Log("Dummy " + MethodBase.GetCurrentMethod().Name);
-        }
-
-        public void SetiOSAppPauseOnBackground(bool pause)
         {
             Debug.Log("Dummy " + MethodBase.GetCurrentMethod().Name);
         }
@@ -193,7 +186,32 @@ namespace GoogleMobileAds.Common
             Debug.Log("Dummy " + MethodBase.GetCurrentMethod().Name);
         }
 
+        public void CreateNativeExpressAdView(string adUnitId, AdSize adSize, AdPosition position)
+        {
+            Debug.Log("Dummy " + MethodBase.GetCurrentMethod().Name);
+        }
+
+        public void CreateNativeExpressAdView(string adUnitId, AdSize adSize, int positionX, int positionY)
+        {
+            Debug.Log("Dummy " + MethodBase.GetCurrentMethod().Name);
+        }
+
         public void SetAdSize(AdSize adSize)
+        {
+            Debug.Log("Dummy " + MethodBase.GetCurrentMethod().Name);
+        }
+
+        public void ShowNativeExpressAdView()
+        {
+            Debug.Log("Dummy " + MethodBase.GetCurrentMethod().Name);
+        }
+
+        public void HideNativeExpressAdView()
+        {
+            Debug.Log("Dummy " + MethodBase.GetCurrentMethod().Name);
+        }
+
+        public void DestroyNativeExpressAdView()
         {
             Debug.Log("Dummy " + MethodBase.GetCurrentMethod().Name);
         }

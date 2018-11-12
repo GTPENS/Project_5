@@ -4,8 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Shop : MonoBehaviour {
-    public TurretBlueprint standardTurret;
+    public TurretBlueprint StandardTurret;
     public TurretBlueprint LaserTurret;
+    public TurretBlueprint GunnerTurret;
     BuildManager buildManager;
     void Start()
     {
@@ -14,11 +15,16 @@ public class Shop : MonoBehaviour {
     // Use this for initialization
     public void SelectBomb () {
 
-        buildManager.SelectTurretToBuild(standardTurret);
+        buildManager.SelectTurretToBuild(StandardTurret);
 	}
 	
 	// Update is called once per frame
 	public void SelectLaser () {
         buildManager.SelectTurretToBuild(LaserTurret);
+    }
+
+    public void SelectGunner()
+    {
+        buildManager.SelectTurretToBuild(GunnerTurret);
     }
 }

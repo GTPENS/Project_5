@@ -14,10 +14,22 @@ public class Enemy : MonoBehaviour {
     private float health;
     public float Damage = 50f;
     public int Defense = 40;
+    public bool MoveUp = false;
+    public bool MoveDown = false;
 
     public Image life;
 	// Use this for initialization
 	void Start () {
+        if (SpawnEnemy.Under == true)
+        {
+            MoveDown = true;
+            MoveUp = false;
+        }
+        else if (SpawnEnemy.Above == true)
+        {
+            MoveUp = true;
+            MoveDown = false;
+        }
         speed = StartSpeed;
         health = Starthealth;
         //Points = GameObject.FindGameObjectWithTag("Waypoints").GetComponent<Waypoints>();

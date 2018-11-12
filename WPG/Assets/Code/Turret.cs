@@ -32,6 +32,8 @@ public class Turret : MonoBehaviour {
     [Header ("Setup Fields")]
     public string enemyTag = "Enemy";
     public Transform firepoint;
+
+    public GameObject SFXLaser;
     //public float TurnSpeed = 10f;
     //public Transform partToRotate;
 
@@ -119,6 +121,7 @@ public class Turret : MonoBehaviour {
             linerender.enabled = true;
             ImpactEffect.Play();
             ImpactLight.enabled = true;
+            GameObject laser = (GameObject)Instantiate(SFXLaser);
         }
 
         linerender.SetPosition(0, firepoint.position);

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerStats : MonoBehaviour {
     public static int Money;
@@ -10,9 +11,13 @@ public class PlayerStats : MonoBehaviour {
     public static float PlayerHealth;
     public float StarterPlayerHealth = 100f;
     public Image HealthBar;
-    public Text GameOver;
+    public GameObject SFXlose;
+
+    public static bool Lose = false;
     // Use this for initialization
     void Start () {
+        Scene currentScene = SceneManager.GetActiveScene();
+        string sceneName = currentScene.name;
         Money = startMoney;
         PlayerHealth = StarterPlayerHealth;
     }
@@ -23,8 +28,9 @@ public class PlayerStats : MonoBehaviour {
 
         if (PlayerHealth <= 0)
         {
-            GameOver.gameObject.SetActive(true);
             Time.timeScale = 0;
+            Lose = true;
+            GameObject SfxLose = (GameObject)Instantiate(SFXlose);
         }
     }
 }

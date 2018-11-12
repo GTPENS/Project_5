@@ -33,20 +33,6 @@ static CGFloat FullSafeWidthLandscape(void) {
 
 @implementation GADUPluginUtil
 
-static BOOL _pauseOnBackground = NO;
-
-+ (BOOL)pauseOnBackground {
-  return _pauseOnBackground;
-}
-
-+ (void)setPauseOnBackground:(BOOL)pause {
-  _pauseOnBackground = pause;
-}
-
-+ (NSString *)GADUStringFromUTF8String:(const char *)bytes {
-  return bytes ? @(bytes) : nil;
-}
-
 + (GADAdSize)safeAdSizeForAdSize:(GADAdSize)adSize {
   if (IsOperatingSystemAtLeastVersion(11) &&
       GADAdSizeEqualToSize(kGADAdSizeSmartBannerLandscape, adSize)) {

@@ -18,6 +18,8 @@ public class Node : MonoBehaviour {
     private Renderer rend;
     private Color startColor;
 
+    public GameObject SFXSelect;
+
     BuildManager buildManager;
 	// Use this for initialization
 	void Start () {
@@ -38,7 +40,7 @@ public class Node : MonoBehaviour {
         if (turret != null)
         {
             buildManager.SelectNode(this);
-            Debug.Log("Can't build there");
+            GameObject SFXSelected = (GameObject)Instantiate(SFXSelect);
             return;
         }
         if (!buildManager.CanBuild)
@@ -66,6 +68,9 @@ public class Node : MonoBehaviour {
         GameObject effect = (GameObject)Instantiate(buildManager.buildEffect, GetBuildPosition(), Quaternion.identity);
         Destroy(effect, 5f);
 
+        GameObject SfxBuild = (GameObject)Instantiate(buildManager.SFXBuild);
+        Destroy(SfxBuild, 1f);
+
         Debug.Log("Turret Has Been Built !, Money Left : " + PlayerStats.Money);
     }
 
@@ -87,6 +92,9 @@ public class Node : MonoBehaviour {
         GameObject effect = (GameObject)Instantiate(buildManager.buildEffect, GetBuildPosition(), Quaternion.identity);
         Destroy(effect, 5f);
 
+        GameObject SfxUpgrade = (GameObject)Instantiate(buildManager.SFXUpgrade);
+        Destroy(SfxUpgrade, 1f);
+
         isUpgraded = true;
 
         Debug.Log("Turret Has Been Built !, Money Left : " + PlayerStats.Money);
@@ -98,6 +106,9 @@ public class Node : MonoBehaviour {
 
         GameObject effect = (GameObject)Instantiate(buildManager.sellEffect, GetBuildPosition(), Quaternion.identity);
         Destroy(effect, 5f);
+
+        GameObject SfxSell = (GameObject)Instantiate(buildManager.SFXSell);
+        Destroy(SfxSell, 1f);
 
         Destroy(turret);
         turretBlueprint = null;

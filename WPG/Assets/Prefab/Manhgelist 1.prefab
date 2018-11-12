@@ -258,6 +258,7 @@ MonoBehaviour:
   linerender: {fileID: 120398616258199118}
   ImpactEffect: {fileID: 198807504912987052}
   ImpactLight: {fileID: 108269652915945132}
+  useBalista: 0
   enemyTag: Enemy
   firepoint: {fileID: 4807106363848126}
 --- !u!120 &120398616258199118

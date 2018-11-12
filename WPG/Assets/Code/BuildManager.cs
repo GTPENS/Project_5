@@ -18,7 +18,12 @@ public class BuildManager : MonoBehaviour {
 
     public GameObject standardTurret;
     public GameObject anotherTurret;
-   
+    public GameObject mazingTurret;
+
+    public GameObject SFXSell;
+    public GameObject SFXUpgrade;
+    public GameObject SFXBuild;
+
     private TurretBlueprint turretToBuild;
 
     private Node selectedNode;

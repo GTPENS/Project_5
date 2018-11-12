@@ -11,11 +11,15 @@ public class Others : MonoBehaviour {
 	void Update () {
         if (Price.gameObject.tag == "Price1")
         {
-            Price.text = "$" + shop.standardTurret.cost;
+            Price.text = "$" + shop.StandardTurret.cost;
         }
         else if (Price.gameObject.tag == "Price2")
         {
             Price.text = "$" + shop.LaserTurret.cost;
+        }
+        else if (Price.gameObject.tag == "Price3")
+        {
+            Price.text = "$" + shop.GunnerTurret.cost;
         }
     }
 }

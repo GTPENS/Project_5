@@ -8,6 +8,10 @@ public class Bullet : MonoBehaviour {
     public int damage = 50;
     public float explosionRadius = 0f;
     public GameObject ImpactEffect;
+
+    public GameObject SFXShoot;
+    public GameObject SFXBomb;
+
     public void Seek(Transform _target)
     {
         target = _target;
@@ -24,7 +28,10 @@ public class Bullet : MonoBehaviour {
         Vector3 dir = target.position - transform.position;
         float distanceThisFrame = speed * Time.deltaTime;
 
-        if(dir.magnitude <= distanceThisFrame)
+        //float angle = Mathf.Atan2(dir.y + 45, dir.x + 90) * Mathf.Rad2Deg;
+        //transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+
+        if (dir.magnitude <= distanceThisFrame)
         {
             HitTarget();
             return;
@@ -37,6 +44,10 @@ public class Bullet : MonoBehaviour {
     {
         GameObject effectIns = (GameObject)Instantiate(ImpactEffect, transform.position, transform.rotation);
         Destroy(effectIns, 0.5f);
+
+        GameObject Bmb = (GameObject)Instantiate(SFXBomb);
+        Destroy(Bmb, 1f);
+
         if (explosionRadius > 0f)
         {
             Explode();
